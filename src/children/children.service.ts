@@ -28,7 +28,9 @@ export class ChildrenService {
 
   async findAll() {
     try {
-      return await this.prisma.children.findMany();
+      return await this.prisma.children.findMany({
+        include: { games: true },
+      });
     } catch (error) {
       console.error('Error finding all children:', error);
       throw new InternalServerErrorException('Failed to fetch children.');
@@ -39,6 +41,7 @@ export class ChildrenService {
     try {
       return await this.prisma.children.findUniqueOrThrow({
         where: { id },
+        include: { games: true },
       });
     } catch (error) {
       if (error.code === 'P2025') {
