@@ -1,0 +1,516 @@
+{
+	"info": {
+		"name": "New Collection",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MikTests",
+			"description": "",
+			"sort": 13,
+			"item": [
+				{
+					"name": "Get One Toy",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys/2",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys/2"
+							]
+						}
+					},
+					"sort": 1
+				},
+				{
+					"name": "Get All Toys",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": false,
+								"description": ""
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/toys",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys"
+							]
+						}
+					},
+					"sort": 2
+				},
+				{
+					"name": "Get One Toy (Wrong ID)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys/1234",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys/1234"
+							]
+						}
+					},
+					"sort": 3
+				},
+				{
+					"name": "Add New Toy",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Toy train\",\n\t\"material\": \"wood\",\n\t\"weight\": 1.25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 4
+				},
+				{
+					"name": "Add New Toy (Invalid)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": 78,\n\t\"material\": \"air\",\n\t\"weight\": -5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 5
+				},
+				{
+					"name": "Update Toy",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys/3",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys/3"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"weight\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 6
+				},
+				{
+					"name": "Update Toy (Invalid)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys/2",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys/2"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"material\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 7
+				},
+				{
+					"name": "Update Toy (Wrong ID)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys/1234",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys/1234"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"PlayCube X\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 8
+				},
+				{
+					"name": "Get All Children",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children"
+							]
+						}
+					},
+					"sort": 9
+				},
+				{
+					"name": "Add Toy to Child",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/2/toys/1",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/2/toys/1"
+							]
+						}
+					},
+					"sort": 10
+				},
+				{
+					"name": "Delete One Toy",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/toys/2",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/toys/2"
+							]
+						}
+					},
+					"sort": 11
+				},
+				{
+					"name": "Remove Toy from Child",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/2/toys/1",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/2/toys/1"
+							]
+						}
+					},
+					"sort": 12
+				},
+				{
+					"name": "Delete one Children",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/2",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/2"
+							]
+						}
+					},
+					"sort": 13
+				},
+				{
+					"name": "Get One Children",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/2",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/2"
+							]
+						}
+					},
+					"sort": 14
+				},
+				{
+					"name": "Add New Children",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Csaptelepes Lajos\",\n\t\"address\": \"1324 Álomország utca 22.\",\n\t\"goodKid\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 15
+				},
+				{
+					"name": "Get One Children (Wrong ID)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/1234",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/1234"
+							]
+						}
+					},
+					"sort": 16
+				},
+				{
+					"name": "Add New Children (Invalid)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": 78,\n\t\"address\": false,\n\t\"goodKid\": \"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 17
+				},
+				{
+					"name": "Update Children",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/1",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/1"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Csaptelepes Lajos\",\n\t\"address\": \"1324 Álomország utca 22.\",\n\t\"goodKid\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 18
+				},
+				{
+					"name": "Update Children (Invalid)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/1234",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/1234"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Csaptelepes Lajos\",\n\t\"address\": \"1324 Álomország utca 22.\",\n\t\"goodKid\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 19
+				},
+				{
+					"name": "Update Children (Wrong)",
+					"description": "",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/children/1",
+							"query": [],
+							"variable": [],
+							"host": [
+								"{{baseUrl}}/children/1"
+							]
+						},
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Csaptelepes Lajos\",\n\t\"address\": \"1324 Álomország utca 22.\",\n\t\"goodKid\": \"false\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"sort": 20
+				}
+			]
+		}
+	],
+	"variable": [],
+	"event": [],
+	"auth": {}
+}
