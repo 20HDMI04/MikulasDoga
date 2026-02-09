@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Children } from 'generated/prisma/client';
+import { GameEntity } from '../../games/entities/game.entity';
 
 export class ChildEntity implements Children {
   @ApiProperty({ example: 1, description: 'Unique identifier' })
@@ -22,18 +23,4 @@ export class ChildEntity implements Children {
 
   @ApiProperty({ type: () => GameEntity, isArray: true, required: false })
   games?: GameEntity[];
-}
-
-export class GameEntity {
-  @ApiProperty({ example: 1 })
-  id: number;
-
-  @ApiProperty({ example: 'Car' })
-  name: string;
-
-  @ApiProperty({ enum: ['wood', 'metal', 'plastic', 'other'], example: 'wood' })
-  material: 'wood' | 'metal' | 'plastic' | 'other';
-
-  @ApiProperty({ example: 1.5 })
-  weight: number;
 }
