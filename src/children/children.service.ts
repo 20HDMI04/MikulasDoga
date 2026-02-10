@@ -12,6 +12,14 @@ import { PrismaService } from 'src/prisma.service';
 export class ChildrenService {
   constructor(private readonly prisma: PrismaService) {}
 
+  /**
+   *
+   * @summary Creates a new child record in the database.
+   * @param {@link CreateChildDto} createChildDto
+   * @returns The created child record.
+   * @throws {@link ConflictException} If a child with the same unique data already exists.
+   * @throws {@link InternalServerErrorException} If there is an error during the creation process.
+   */
   async create(createChildDto: CreateChildDto) {
     try {
       return await this.prisma.children.create({
@@ -26,6 +34,11 @@ export class ChildrenService {
     }
   }
 
+  /**
+   * @summary Retrieves all child records from the database, including their associated games.
+   * @returns An array of child records with their associated games.
+   * @throws {@link InternalServerErrorException} If there is an error during the retrieval process.
+   */
   async findAll() {
     try {
       return await this.prisma.children.findMany({
@@ -37,6 +50,14 @@ export class ChildrenService {
     }
   }
 
+  /**
+   *
+   * @summary Retrieves a single child record by its unique identifier, including its associated games.
+   * @param {@link number} id - The unique identifier of the child to retrieve.
+   * @returns {@link Children} - The child record with the specified ID, including its associated games.
+   * @throws {@link NotFoundException} If a child with the specified ID is not found in the database.
+   * @throws {@link InternalServerErrorException} If there is an error during the retrieval process.
+   */
   async findOne(id: number) {
     try {
       return await this.prisma.children.findUniqueOrThrow({
@@ -54,6 +75,15 @@ export class ChildrenService {
     }
   }
 
+  /**
+   * @summary Updates a child record by its unique identifier.
+   * @param {@link number} id - The unique identifier of the child to update.
+   * @param {@link UpdateChildDto} updateChildDto - The data to update the child with.
+   * @returns The updated child record.
+   * @throws {@link ConflictException} If a child with the same unique data already exists.
+   * @throws {@link NotFoundException} If a child with the specified ID is not found.
+   * @throws {@link InternalServerErrorException} If there is an error during the update process.
+   */
   async update(id: number, updateChildDto: UpdateChildDto) {
     try {
       return await this.prisma.children.update({
@@ -74,6 +104,13 @@ export class ChildrenService {
     }
   }
 
+  /**
+   * @summary Removes a child record by its unique identifier.
+   * @param {@link number} id - The unique identifier of the child to remove.
+   * @returns {@link Children} - The removed child record.
+   * @throws {@link NotFoundException} If a child with the specified ID is not found in the database.
+   * @throws {@link InternalServerErrorException} If there is an error during the removal process.
+   */
   async remove(id: number) {
     try {
       return await this.prisma.children.delete({
@@ -90,6 +127,14 @@ export class ChildrenService {
     }
   }
 
+  /**
+   * @summary Adds a game to a child's list of associated games.
+   * @param {@link number} childId - The unique identifier of the child.
+   * @param {@link number} gameId - The unique identifier of the game to add.
+   * @returns The updated child record with the newly associated game.
+   * @throws {@link NotFoundException} If the child or game is not found.
+   * @throws {@link InternalServerErrorException} If there is an error during the process.
+   */
   async addGameToChild(childId: number, gameId: number) {
     try {
       return await this.prisma.children.update({
@@ -109,6 +154,15 @@ export class ChildrenService {
     }
   }
 
+  /**
+   *
+   * @summary Removes a game from a child's list of associated games.
+   * @param {@link number} childId - The unique identifier of the child.
+   * @param {@link number} gameId - The unique identifier of the game to remove.
+   * @returns The updated child record with the game removed.
+   * @throws {@link NotFoundException} If the child or game is not found.
+   * @throws {@link InternalServerErrorException} If there is an error during the process.
+   */
   async removeGameFromChild(childId: number, gameId: number) {
     try {
       return await this.prisma.children.update({
