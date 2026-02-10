@@ -8,6 +8,9 @@ import { CreateChildDto } from './dto/create-child.dto';
 import { UpdateChildDto } from './dto/update-child.dto';
 import { PrismaService } from 'src/prisma.service';
 
+/**
+ * @summary ChildrenService is a service class that provides methods for managing children in the application. It interacts with the database through PrismaService to perform CRUD operations on child entities, as well as managing the association between children and games.
+ */
 @Injectable()
 export class ChildrenService {
   constructor(private readonly prisma: PrismaService) {}
