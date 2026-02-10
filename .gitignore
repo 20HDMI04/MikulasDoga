@@ -12,6 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# docs what we don't want to publish because you can generate it
+docs
+
 # OS
 .DS_Store
 
